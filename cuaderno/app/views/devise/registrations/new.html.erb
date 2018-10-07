@@ -1,0 +1,36 @@
+<body class="colorsesion">
+<h2 class= "text-center relleno">Sign up</h2>
+
+<div class= "margen">
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+ 
+  <div class="margen form-group field">
+  <%= f.label :email %><br />
+  <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control"  %> 
+  </div>
+
+  <div class="margen form-group field">
+  <%= f.label :password %>
+  <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+  <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
+  </div>
+
+  <div class="margen form-group field">
+  <%= f.label :password_confirmation %> <br />
+  <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
+  </div>
+
+  <div class="margen actions">
+    <%= f.submit "Sign up", class: "btn btn-secondary" %>
+  </div>
+<% end %>
+</div>
+<div class="text-center relleno actions">
+<%= render "devise/shared/links", class: "btn-link" %>
+</div>
+
+</body>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cuaderno</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+  <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+  integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body class="colorfondo">
+
+  <nav class="nav">
+
+    <div class="col-lg-8 align-self-end order-last">
+      <% if user_signed_in? %>
+      <div class="margen"><%= link_to "Logout", destroy_user_session_path, method: :delete %></div>
+      <% else %>
+      <div class="margen"><%= link_to "Sign Up", new_user_registration_path %></div>
+    </div>
+
+    <div class="col-lg-6 align-self-end">
+      <div class="margen"><%= link_to "Login", new_user_session_path %></div>
+      <% end %>
+    </div>
+
+    <div class="col-lg-6 align-self-end">
+      <%=image_tag("harvard_university-logo.png", class: "tamanologo margen text-center")%>
+    </div>
+  </nav>
+
+  <p class="margen notice"><%= notice %></p>
+  <p class="margen alert"><%= alert %></p>
+
+  <%= yield %>
+
+</body>
+</html>
